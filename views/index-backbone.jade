@@ -1,0 +1,42 @@
+extends layout
+
+block content
+  .row
+    .twelve.columns
+      h1= title
+  form.custom
+    .row
+      .twelve.columns
+        input.five(type='text', placeholder='Item Name', name='item_name')
+        input.one(type='text', placeholder='Qty', name='amount')
+    .row
+      .two.columns
+        select(style='display:none')
+          option(selected) Food
+          option Toiletries
+          option Medicine
+          option Pet Food
+          option Hardware
+
+        .custom.dropdown
+          a(href='#').current Type
+          a.selector(href='#')
+          ul
+            li Food
+            li Toiletries
+            li Medicine
+            li Pet Food
+            li Hardware
+      .nine.columns
+        button#add-item.radius.button Add to list
+  #list.row
+    table.twelve
+      thead
+        tr
+          th Item Name
+          th Quantity
+          th Type
+          th Date Added
+          th Remove
+      tbody.items
+

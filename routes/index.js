@@ -3,7 +3,7 @@ var models = require('../models/index.js')
 
 exports.index = function(req, res){
   var groceries = Grocery.find({}, null, {lean: true}).exec(function(err, groceries) {
-      res.render('index', {
+      res.render('index-backbone', {
           title: 'Yum Yum'
         , data: groceries
       });
