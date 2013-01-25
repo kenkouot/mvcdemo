@@ -32,6 +32,7 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/groceries', grocery.retrieve);
 app.post('/groceries', grocery.create);
+app.patch('/groceries/:id', grocery.update);
 app.delete('/groceries/:id', grocery.remove);
 
 http.createServer(app).listen(app.get('port'), function(){

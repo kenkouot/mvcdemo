@@ -1,9 +1,45 @@
 doctype 5
-html
+html(ng-app='app')
   head
+    script(type='text/html', id='tpl-list-item')
+      td: span(contenteditable, data-prop='item_name') <%= item_name %>
+      td: span(contenteditable, data-prop='amount') <%= amount %>
+      td: span(contenteditable, data-prop='type') <%= type %>
+      td <%= new Date(date) %>
+      td: span.alert.button.small Remove
+          
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     script
-      window.test = !{JSON.stringify(data)};
-  body
-    block content
+      window.appData = !{JSON.stringify(data)};
+  body(ng-controller='ListCtrl')
+    #content.container
+      block content
+
+  script(src='/javascripts/main.js')
+
+  script(src='/javascripts/lib/jquery.min.js')
+  script(src='/javascripts/lib/jquery.foundation.forms.js')
+  // script(src='/javascripts/lib/handlebars.js') 
+  // script(src='/javascripts/lib/ember-1.0.0-pre.4.js')
+
+  // Backbone implementation specific files
+  // script(src='/javascripts/lib/underscore.js')
+  // script(src='/javascripts/lib/backbone.js')
+  // script(src='/javascripts/backbone/views/index.js')
+  // script(src='/javascripts/backbone/views/item.js')
+  // script(src='/javascripts/backbone/models/grocery.js')
+  // script(src='/javascripts/backbone/collections/groceries.js')
+  // script(src='/javascripts/backbone/router.js')
+  // script(src='/javascripts/app-backbone.js')
+
+  // angular implementation files
+  script(src='/javascripts/lib/angular.js')
+  script(src='/javascripts/app-angular.js')
+  script(src='/javascripts/angular/services/api.js')
+  script(src='/javascripts/angular/controllers/list.js')
+  script(src='/javascripts/angular/directives/itemKeydown.js')
+  script(src='/javascripts/angular/directives/itemClick.js')
+
+
+

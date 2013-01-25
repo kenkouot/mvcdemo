@@ -27,3 +27,14 @@ exports.remove = function(req, res) {
       });
   });
 };
+
+exports.update = function(req, res) {
+  var id = req.params.id;
+  console.log(req);
+  console.log(req.body);
+  Grocery.findByIdAndUpdate(id, req.body, function(err, grocery) {
+      if (!grocery) return res.send(404);
+      if (err) return res.send(500, err);
+      return res.send(200, grocery);
+  });
+};
