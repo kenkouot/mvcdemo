@@ -52,8 +52,8 @@ block content
       tbody.items
         tr(ng-repeat='item in list')
           td: span(contenteditable, data-prop='item_name', item-click, item-keydown='{{item}}') {{ item.item_name }}
-          td: span(contenteditable, data-prop='amount') {{ item.amount }}
-          td: span(contenteditable, data-prop='type') {{ item.type }}
+          td: span(contenteditable, data-prop='amount', item-click, item-keydown='{{item}}') {{ item.amount }}
+          td: span(contenteditable, data-prop='type', item-click, item-keydown='{{item}}') {{ item.type }}
           td {{ item.date }}
           td: span.alert.button.small(ng-click='removeItem(item)') Remove
 
